@@ -57,6 +57,7 @@ if (isset($_COOKIE['auth_token'])) {
                             <input type="checkbox" name="terms" required>
                             <span class="checkmark"></span>
                             I agree to the <a href="terms.php" target="_blank">Terms of Service</a> and <a href="privacy.php" target="_blank">Privacy Policy</a>
+                            I agree to the <a href="/terms.php" target="_blank">Terms of Service</a> and <a href="/privacy.php" target="_blank">Privacy Policy</a>
                         </label>
                     </div>
                     
@@ -66,7 +67,7 @@ if (isset($_COOKIE['auth_token'])) {
                 </form>
                 
                 <div class="auth-footer">
-                    <p>Already have an account? <a href="login.php">Sign in</a></p>
+                    <p>Already have an account? <a href="/login.php">Sign in</a></p>
                 </div>
             </div>
         </div>
@@ -107,7 +108,7 @@ if (isset($_COOKIE['auth_token'])) {
                 const result = await response.json();
                 
                 if (response.ok) {
-                    window.location.href = 'index.php';
+                    window.location.href = '/index.php';
                 } else {
                     errorDiv.textContent = result.error || 'Signup failed';
                     errorDiv.style.display = 'block';

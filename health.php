@@ -143,7 +143,7 @@
         function renderPetTabs() {
             const container = document.getElementById('petTabs');
             if (pets.length === 0) {
-                container.innerHTML = '<p class="no-pets">No pets found. <a href="profile.php">Add a pet first</a></p>';
+                container.innerHTML = '<p class="no-pets">No pets found. <a href="/profile.php">Add a pet first</a></p>';
                 return;
             }
             
@@ -271,17 +271,41 @@
                 alert('Please select a pet first');
                 return;
             }
-            // Implementation for adding health record
-            console.log('Add health record for pet:', currentPetId);
+            
+            const title = prompt('Record title:');
+            const description = prompt('Description:');
+            const type = prompt('Type (vaccination, checkup, medication, etc.):') || 'general';
+            
+            if (title && description) {
+                fetch('/api/health.php?action=add', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        pet_id: currentPetId,
+                        title: title,
+                        description: description,
+                        type: type,
+                        date: new Date().toISOString().split('T')[0]
+                    })
+                }).then(() => {
+                    loadPetHealthRecords(currentPetId);
+                });
+            }
         }
         
         function editRecord(recordId) {
-            console.log('Edit record:', recordId);
+            window.location.href = `/health.php?action=edit&record=${recordId}`;
         }
         
         function deleteRecord(recordId) {
             if (confirm('Are you sure you want to delete this record?')) {
-                console.log('Delete record:', recordId);
+                fetch(`/api/health.php?action=delete&id=${recordId}`, {
+                    method: 'DELETE',
+                    credentials: 'include'
+                }).then(() => {
+                    loadPetHealthRecords(currentPetId);
+                });
             }
         }
         
@@ -290,7 +314,7 @@
                 alert('Please select a pet first');
                 return;
             }
-            console.log('Export PDF for pet:', currentPetId);
+            window.open(`/api/health.php?action=export&pet_id=${currentPetId}&format=pdf`);
         }
         
         function formatDate(dateString) {

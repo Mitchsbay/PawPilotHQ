@@ -132,7 +132,7 @@
         }
         
         function viewGroup(groupId) {
-            window.location.href = `group.php?id=${groupId}`;
+            window.location.href = `/groups.php?view=${groupId}`;
         }
         
         // Load groups when page loads

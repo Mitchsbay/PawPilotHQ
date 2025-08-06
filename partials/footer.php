@@ -15,29 +15,29 @@
             <div class="footer-section">
                 <h4>Features</h4>
                 <ul class="footer-links">
-                    <li><a href="profile.php">Pet Profiles</a></li>
-                    <li><a href="health.php">Health Tracking</a></li>
-                    <li><a href="social.php">Pet Community</a></li>
-                    <li><a href="map.php">Lost Pet Alerts</a></li>
+                    <li><a href="/profile.php">Pet Profiles</a></li>
+                    <li><a href="/health.php">Health Tracking</a></li>
+                    <li><a href="/social.php">Pet Community</a></li>
+                    <li><a href="/map.php">Lost Pet Alerts</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
                 <h4>Support</h4>
                 <ul class="footer-links">
-                    <li><a href="help.php">Help Center</a></li>
-                    <li><a href="contact.php">Contact Us</a></li>
-                    <li><a href="community.php">Community</a></li>
-                    <li><a href="feedback.php">Feedback</a></li>
+                    <li><a href="/help.php">Help Center</a></li>
+                    <li><a href="/contact.php">Contact Us</a></li>
+                    <li><a href="/community.php">Community</a></li>
+                    <li><a href="/feedback.php">Feedback</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
                 <h4>Connect</h4>
                 <ul class="footer-links">
-                    <li><a href="privacy.php">Privacy Policy</a></li>
-                    <li><a href="terms.php">Terms of Service</a></li>
-                    <li><a href="cookies.php">Cookie Policy</a></li>
+                    <li><a href="/privacy.php">Privacy Policy</a></li>
+                    <li><a href="/terms.php">Terms of Service</a></li>
+                    <li><a href="/cookies.php">Cookie Policy</a></li>
                 </ul>
             </div>
         </div>
@@ -60,8 +60,7 @@
 
         // Global add pet modal function
         function showAddPetModal() {
-            // Implementation for add pet modal
-            window.location.href = 'profile.php?action=add';
+            window.location.href = '/profile.php?action=add';
         }
     </script>
 </body>

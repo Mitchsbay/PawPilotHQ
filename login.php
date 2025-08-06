@@ -49,6 +49,7 @@ if (isset($_COOKIE['auth_token'])) {
                             Remember me
                         </label>
                         <a href="forgot-password.php" class="forgot-link">Forgot password?</a>
+                        <a href="/forgot-password.php" class="forgot-link">Forgot password?</a>
                     </div>
                     
                     <button type="submit" class="btn btn-primary btn-full">Sign In</button>
@@ -57,7 +58,7 @@ if (isset($_COOKIE['auth_token'])) {
                 </form>
                 
                 <div class="auth-footer">
-                    <p>Don't have an account? <a href="signup.php">Sign up</a></p>
+                    <p>Don't have an account? <a href="/signup.php">Sign up</a></p>
                 </div>
             </div>
         </div>
@@ -91,7 +92,7 @@ if (isset($_COOKIE['auth_token'])) {
                 const result = await response.json();
                 
                 if (response.ok) {
-                    window.location.href = 'index.php';
+                    window.location.href = '/index.php';
                 } else {
                     errorDiv.textContent = result.error || 'Login failed';
                     errorDiv.style.display = 'block';

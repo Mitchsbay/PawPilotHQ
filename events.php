@@ -116,12 +116,37 @@
             });
             
             if (dayEvents.length === 0) {
-                alert('No events on this day');
+                if (confirm('No events on this day. Would you like to add one?')) {
+                    addEvent(dateString);
+                }
                 return;
             }
             
-            // Show events for this day
-            console.log('Events for', date.toDateString(), dayEvents);
+            // Show events modal or navigate to day view
+            window.location.href = `/events.php?date=${date.toISOString().split('T')[0]}`;
+        }
+        
+        function addEvent(dateString = null) {
+            const title = prompt('Event title:');
+            const description = prompt('Description:');
+            const eventDate = dateString || prompt('Date (YYYY-MM-DD):');
+            const eventType = prompt('Type (vet_appointment, vaccination, grooming, etc.):') || 'other';
+            
+            if (title && eventDate) {
+                fetch('/api/events.php?action=add', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        title: title,
+                        description: description,
+                        event_date: eventDate,
+                        event_type: eventType
+                    })
+                }).then(() => {
+                    loadEvents();
+                });
+            }
         }
         
         // Load events when page loads

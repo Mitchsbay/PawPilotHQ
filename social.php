@@ -279,16 +279,43 @@
         }
         
         function createPost() {
-            // Implementation for creating a new post
-            console.log('Create new post');
+            const content = prompt('What would you like to share?');
+            if (content) {
+                fetch('/api/posts.php?action=create', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        content: content,
+                        visibility: 'public'
+                    })
+                }).then(() => {
+                    loadPosts(); // Reload posts
+                });
+            }
         }
         
         function showPostMenu(postId) {
-            console.log('Show post menu for:', postId);
+            if (confirm('Delete this post?')) {
+                fetch(`/api/posts.php?action=delete&id=${postId}`, {
+                    method: 'DELETE',
+                    credentials: 'include'
+                }).then(() => {
+                    loadPosts();
+                });
+            }
         }
         
         function sharePost(postId) {
-            console.log('Share post:', postId);
+            if (navigator.share) {
+                navigator.share({
+                    title: 'PawPilot HQ Post',
+                    url: `${window.location.origin}/social.php?post=${postId}`
+                });
+            } else {
+                navigator.clipboard.writeText(`${window.location.origin}/social.php?post=${postId}`);
+                alert('Link copied to clipboard!');
+            }
         }
         
         function formatTimeAgo(dateString) {

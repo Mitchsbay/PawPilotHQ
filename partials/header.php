@@ -36,31 +36,31 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
             </div>
             
             <div class="nav-links">
-                <a href="index.php" class="nav-link <?php echo $currentPage === 'index' ? 'active' : ''; ?>">
+                <a href="/index.php" class="nav-link <?php echo $currentPage === 'index' ? 'active' : ''; ?>">
                     <i class="icon-dashboard"></i>
                     Dashboard
                 </a>
-                <a href="profile.php" class="nav-link <?php echo $currentPage === 'profile' ? 'active' : ''; ?>">
+                <a href="/profile.php" class="nav-link <?php echo $currentPage === 'profile' ? 'active' : ''; ?>">
                     <i class="icon-pets"></i>
                     My Pets
                 </a>
-                <a href="health.php" class="nav-link <?php echo $currentPage === 'health' ? 'active' : ''; ?>">
+                <a href="/health.php" class="nav-link <?php echo $currentPage === 'health' ? 'active' : ''; ?>">
                     <i class="icon-health"></i>
                     Health
                 </a>
-                <a href="social.php" class="nav-link <?php echo $currentPage === 'social' ? 'active' : ''; ?>">
+                <a href="/social.php" class="nav-link <?php echo $currentPage === 'social' ? 'active' : ''; ?>">
                     <i class="icon-social"></i>
                     Social
                 </a>
-                <a href="groups.php" class="nav-link <?php echo $currentPage === 'groups' ? 'active' : ''; ?>">
+                <a href="/groups.php" class="nav-link <?php echo $currentPage === 'groups' ? 'active' : ''; ?>">
                     <i class="icon-groups"></i>
                     Groups
                 </a>
-                <a href="events.php" class="nav-link <?php echo $currentPage === 'events' ? 'active' : ''; ?>">
+                <a href="/events.php" class="nav-link <?php echo $currentPage === 'events' ? 'active' : ''; ?>">
                     <i class="icon-events"></i>
                     Events
                 </a>
-                <a href="map.php" class="nav-link <?php echo $currentPage === 'map' ? 'active' : ''; ?>">
+                <a href="/map.php" class="nav-link <?php echo $currentPage === 'map' ? 'active' : ''; ?>">
                     <i class="icon-map"></i>
                     Lost Pets
                 </a>
@@ -82,8 +82,8 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
                          alt="User Avatar" class="user-avatar">
                     <span class="user-name"><?php echo $user['user_metadata']['full_name'] ?? 'User'; ?></span>
                     <div class="user-dropdown">
-                        <a href="profile.php">Profile</a>
-                        <a href="settings.php">Settings</a>
+                        <a href="/profile.php">Profile</a>
+                        <a href="/settings.php">Settings</a>
                         <a href="#" onclick="logout()">Logout</a>
                     </div>
                 </div>

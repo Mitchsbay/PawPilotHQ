@@ -24,8 +24,8 @@
                     </div>
                     
                     <div class="hero-actions">
-                        <a href="signup.php" class="btn btn-primary btn-large">Get Started Free</a>
-                        <a href="login.php" class="btn btn-outline">Sign In</a>
+                        <a href="/signup.php" class="btn btn-primary btn-large">Get Started Free</a>
+                        <a href="/login.php" class="btn btn-outline">Sign In</a>
                     </div>
                 </div>
                 
@@ -132,7 +132,7 @@
             <div class="cta-content">
                 <h2>Ready to Get Started?</h2>
                 <p>Join the PawPilot HQ community and give your pets the care they deserve.</p>
-                <a href="signup.php" class="btn btn-primary btn-large">Create Your Free Account</a>
+                <a href="/signup.php" class="btn btn-primary btn-large">Create Your Free Account</a>
             </div>
         </div>
     </div>
@@ -191,7 +191,7 @@
                     <div class="section-header">
                         <h2>My Pets</h2>
                         <p>Check-ups and quick actions</p>
-                        <button class="btn btn-primary" onclick="window.location.href='profile.php'">Add Pet</button>
+                        <button class="btn btn-primary" onclick="window.location.href='/profile.php'">Add Pet</button>
                     </div>
                     
                     <div class="pets-list" id="petsList">
@@ -210,6 +210,7 @@
                     </div>
                     
                     <button class="btn btn-outline" onclick="window.location.href='social.php'">View All Activity</button>
+                    <button class="btn btn-outline" onclick="window.location.href='/social.php'">View All Activity</button>
                 </div>
             </div>
             
@@ -251,6 +252,7 @@
                     </div>
                     
                     <button class="btn btn-outline" onclick="window.location.href='events.php'">View Calendar</button>
+                    <button class="btn btn-outline" onclick="window.location.href='/events.php'">View Calendar</button>
                 </div>
                 
                 <div class="section-card">
@@ -264,6 +266,7 @@
                     </div>
                     
                     <button class="btn btn-outline" onclick="window.location.href='social.php'">Explore Community</button>
+                    <button class="btn btn-outline" onclick="window.location.href='/social.php'">Explore Community</button>
                 </div>
             </div>
         </div>
@@ -393,19 +396,19 @@
         
         // Quick action functions
         function logHealthRecord() {
-            window.location.href = 'health.php?action=add';
+            window.location.href = '/health.php?action=add';
         }
         
         function sharePhoto() {
-            window.location.href = 'social.php?action=post';
+            window.location.href = '/social.php?action=post';
         }
         
         function reportLostPet() {
-            window.location.href = 'map.php?action=report';
+            window.location.href = '/map.php?action=report';
         }
         
         function findGroup() {
-            window.location.href = 'groups.php';
+            window.location.href = '/groups.php';
         }
         
         // Utility functions

@@ -126,7 +126,7 @@
         function renderPets() {
             const container = document.getElementById('petsGrid');
             if (pets.length === 0) {
-                container.innerHTML = '<p class="no-pets">No pets added yet. Add your first pet to get started!</p>';
+                container.innerHTML = '<p class="no-pets">No pets added yet. <a href="/profile.php?action=add">Add your first pet</a> to get started!</p>';
                 return;
             }
             
@@ -170,7 +170,7 @@
                     </div>
                     
                     <div class="pet-card-footer">
-                        <button class="btn btn-outline" onclick="window.location.href='health.php?pet=${pet.id}'">
+                        <button class="btn btn-outline" onclick="window.location.href='/health.php?pet=${pet.id}'">
                             <i class="icon-health"></i>
                             Health
                         </button>
@@ -211,7 +211,7 @@
             const formData = new FormData(e.target);
             
             try {
-                const response = await fetch('/api/profile.php', {
+                const response = await fetch('/api/profile.php?action=add', {
                     method: 'POST',
                     credentials: 'include',
                     body: formData
@@ -231,20 +231,22 @@
         });
         
         function editPet(petId) {
-            // Implementation for editing pet
-            console.log('Edit pet:', petId);
+            window.location.href = `/profile.php?action=edit&id=${petId}`;
         }
         
         function deletePet(petId) {
             if (confirm('Are you sure you want to delete this pet?')) {
-                // Implementation for deleting pet
-                console.log('Delete pet:', petId);
+                fetch(`/api/profile.php?action=delete&id=${petId}`, {
+                    method: 'DELETE',
+                    credentials: 'include'
+                }).then(() => {
+                    loadPets(); // Reload pets list
+                });
             }
         }
         
         function viewPetDetails(petId) {
-            // Implementation for viewing pet details
-            console.log('View pet details:', petId);
+            window.location.href = `/profile.php?pet=${petId}`;
         }
         
         function formatDate(dateString) {

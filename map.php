@@ -68,7 +68,11 @@
         }
         
         function viewLostPet(petId) {
-            console.log('View lost pet details:', petId);
+            window.location.href = `/map.php?pet=${petId}`;
+        }
+        
+        function reportLostPet() {
+            window.location.href = '/map.php?action=report';
         }
         
         function formatDate(dateString) {
